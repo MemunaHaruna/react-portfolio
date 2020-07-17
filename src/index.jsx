@@ -9,20 +9,22 @@ import Container from 'react-bootstrap/Container';
 import Home from './components/Home';
 import About from './components/About';
 
-const App = () => (
-  <Router>
-    <Switch>
-      <Container fluid>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-      </Container>
-    </Switch>
-  </Router>
-);
+const App = () => {
+  return (
+    <Router>
+      <Switch>
+        <Container fluid className="app-container">
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+        </Container>
+      </Switch>
+    </Router>
+  );
+};
 
 render(<App />, document.getElementById('app'));
 
