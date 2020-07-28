@@ -12,13 +12,25 @@
   margin: 0 2em;
 
   &-light &-brand {
-    // color: #462255;
     color: white;
   }
 
   &-light .navbar-nav .nav-link {
     color: white;
   }
+
+  &-light .navbar-toggler {
+    color: white;
+  }
+
+  &-toggler {
+    background-color: white;
+    border-color: white;
+  }
+}
+
+a:hover {
+  color: pink;
 }
 
 .app-container {
@@ -29,23 +41,6 @@
 }
 
 .app-container:before {
-  // 9bG50r7S0cg
-  // POd35V_uE4k
-  // sdwkVFSdTvI
-  // CckfJzgNtIY
-  // PzpwBHRLVE0
-  // lE0hAekYz7o
-  // wGIP_FjsfG8
-  // fiSXwmacuVw
-  // 1-KMUJYsSdo
-  // z0nVqfrOqWA
-  // MitT5DGJ48s
-  // AhgpKMCUwyM
-  // e7NzjDo3_hY
-  // yjgZcRP-TOI
-  // VePozHC53Qo
-  // G8rRItjrwkA
-
   background-image: url('https://source.unsplash.com/G8rRItjrwkA/2500x1500');
   content: '';
   background-repeat: no-repeat;
@@ -83,7 +78,28 @@
     left: 350px;
     position: absolute;
     width: 80px;
-    top: 265px;
+    top: 263px;
+
+    .contact-icons {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+
+      .icon {
+        justify-content: center;
+        font-size: 1.3em;
+        color: white;
+        margin: 0.7em 0;
+      }
+
+      .icon:hover {
+        color: pink;
+      }
+    }
+
+    .contact-icons a:hover {
+      color: pink;
+    }
   }
 
   &-bottom-box {
@@ -97,41 +113,3 @@
     border-left: none;
   }
 }
-
-// .home {
-//   display: flex;
-//   // height: 400px;
-//   justify-content: center;
-//   margin: 4em auto;
-//   width: 70%;
-
-//   &-greeting {
-//     font-size: 3.5em;
-//     font-weight: bold;
-//     height: 350px;
-//     padding: 1em;
-//     margin-top: 50px;
-//     width: 50%;
-//     background-color: #93e1d8;
-
-//     .greeting-inner {
-//       max-width: 20%;
-//     }
-//   }
-
-//   &-job {
-//     background-color: #f9f9f9;
-//     direction: rtl;
-//     display: flex;
-//     font-size: 1.5em;
-//     padding: 1em;
-//     text-align: right;
-//     height: 450px;
-//     // transform: rotate(45deg);
-//     width: 50%;
-
-//     .job-inner {
-//       align-self: flex-end;
-//     }
-//   }
-// }
