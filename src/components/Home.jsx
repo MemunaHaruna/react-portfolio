@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import { Link } from 'react-router-dom';
 import Header from './Header';
 
 const Home = () => {
@@ -26,7 +25,7 @@ const Home = () => {
   }, [index]);
 
   return (
-    <div>
+    <div className="home-container">
       <Header />
       <section className="home">
         <div className="home-description-box">{typed}</div>
