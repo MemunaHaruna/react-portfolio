@@ -3,6 +3,30 @@
   font-family: 'Raleway', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+@mixin bg_image($url, $min-height) {
+  background-image: url($url);
+  content: '';
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+  left: 0;
+  height: 100%;
+  min-height: $min-height;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .brand {
   font-family: 'Sacramento', cursive;
   font-size: 2.7em;
@@ -29,31 +53,27 @@
   }
 }
 
-// a:hover {
-//   color: pink;
-// }
-
-.app-container,
-.home-container {
-  background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(60, 9, 108, 1) 100%);
-  color: white;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+.home-container:before {
+  @include bg_image('images/ben-blennerhassett-G8rRItjrwkA-unsplash.jpg', 600px);
 }
 
-.home-container:before {
-  background-image: url('images/ben-blennerhassett-G8rRItjrwkA-unsplash.jpg');
-  content: '';
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+.about-container:before {
+  @include bg_image('images/simon-kuznetsov-vLSc7kNmvP4-unsplash.jpg', 600px);
+}
+
+.projects-container:before {
+  @include bg_image('images/simon-kuznetsov-vLSc7kNmvP4-unsplash_5472_3648.jpg', 1300px);
+}
+
+.home-container,
+.about-container,
+.projects-container {
+  background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(60, 9, 108, 1) 100%);
+  color: white;
   height: 100%;
-  opacity: 0.4;
+  min-height: 600px;
+  width: 100%;
+  z-index: -1;
 }
 
 .home {
@@ -73,10 +93,10 @@
   }
 
   &-contact-box {
-    border: 12px solid white;
+    border: 12px solid #f9f9f9;
     border-right: none;
     height: 190px;
-    opacity: 0.4;
+    opacity: 0.6;
     left: 350px;
     position: absolute;
     width: 80px;
@@ -106,7 +126,7 @@
 
   &-bottom-box {
     position: absolute;
-    border: 12px solid white;
+    border: 12px solid #f9f9f9;
     height: 30px;
     width: 340px;
     top: 148px;
@@ -116,34 +136,126 @@
   }
 }
 
-// cOkpTiJMGzA ** projects **
-// 7ACuHoezUYk **** blog, 2  ****
-
-// J0sMjGu6jvQ ** blog/projects ** nope, for now
-// of_azYsANQY * BLOG 1
-
-// vLSc7kNmvP4 BLOG 3, love this one!
-
-// Gvm7qlEae_M **** about me ******
-// G9i_plbfDgk **** projects *****
-
-.about-container:before {
-  background-image: url('https://source.unsplash.com/G9i_plbfDgk/1920x1280');
-  content: '';
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.4;
+.about {
+  font-size: 1.2em;
+  opacity: 0.9;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2em;
+  width: 60%;
+  border: 12px solid white;
+  padding: 2em;
 }
 
-.about {
-  // display: flex;
-  // justify-content: center;
-  text-align: center;
+.divider {
+  display: flex;
+  margin: 1.2em auto;
   opacity: 0.9;
+  width: 80%;
+
+  .button-box {
+    border: 1px solid white;
+    font-size: 1.1em;
+    margin: 0 0.55em 0 0.55em;
+    padding: 0.5em 1em;
+    width: 18%;
+    text-align: center;
+  }
+
+  .hr {
+    border-bottom: 1px solid white;
+    margin: 0 0 1.5em 0;
+    width: 40%;
+  }
+}
+
+.projects-container {
+  min-height: 1300px !important;
+
+  .projects {
+    ul,
+    li {
+      padding: 0;
+      text-decoration: none;
+      list-style: none;
+    }
+
+    .main-projects,
+    .extra-projects {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      width: 80%;
+
+      a {
+        text-decoration: none;
+      }
+
+      .wide-card,
+      .small-card {
+        border: 12px solid white;
+        color: white;
+        display: flex;
+        margin: 1.6em 0;
+        opacity: 0.9;
+
+        .image-section {
+          width: 60%;
+        }
+
+        .details-section {
+          height: 100%;
+          overflow: scroll;
+          padding: 1em;
+          width: 40%;
+
+          .description {
+            margin: 1.5em 0;
+          }
+
+          .tech-ul {
+            display: flex;
+            margin: 0.5em 0;
+            flex-wrap: wrap;
+            font-size: 0.75em;
+            text-align: end;
+
+            .tech-li {
+              border: 1px solid white;
+              border-radius: 10px;
+              font-weight: lighter;
+              margin: 0.5em 0.5em 0.5em 0;
+              padding: 0.5em 1em;
+            }
+          }
+        }
+      }
+
+      .wide-card:hover {
+        border-color: #936c7e;
+      }
+    }
+
+    .extra-projects {
+      flex-direction: row;
+      justify-content: space-around;
+
+      li {
+        width: 33%;
+        padding: 0.6em;
+      }
+
+      .small-card {
+        border: 1px solid white;
+
+        .details-section {
+          width: 100%;
+        }
+      }
+
+      .small-card:hover {
+        border-color: #936c7e;
+      }
+    }
+  }
 }
