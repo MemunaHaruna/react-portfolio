@@ -7,10 +7,10 @@ import Header from './Header';
 
 const Admin = () => {
   const loggedIn = window.localStorage.getItem('myPortfolioSessionId');
-  if (loggedIn) {
+  if (loggedIn && loggedIn === process.env.PORTFOLIO_SESSION_ID) {
     return (
       <div className="admin-container">
-        <BlogPosts />
+        <BlogPosts adminDemarcatorTitle="Admin" />
       </div>
     );
   }

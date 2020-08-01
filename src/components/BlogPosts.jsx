@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Demarcator from './demarcator';
 
-const BlogPosts = () => {
+const BlogPosts = ({ adminDemarcatorTitle }) => {
   return (
     <div className="blogs-container">
       <Header />
       <div className="blogs">
-        <Demarcator text="My Posts" />
+        <Demarcator text={adminDemarcatorTitle || 'My Posts'} />
       </div>
     </div>
   );

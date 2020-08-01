@@ -8,6 +8,7 @@ const AuthForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const sessionId = process.env.PORTFOLIO_SESSION_ID;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -15,9 +16,8 @@ const AuthForm = () => {
     try {
       const userData = await firestore.doc('users/jDxaEVgpsbGhuuljIKAn').get();
       const user = userData.data();
-      debugger;
       if (email === user.email && password === user.password) {
-        window.localStorage.setItem('myPortfolioSessionId', user.email);
+        window.localStorage.setItem('myPortfolioSessionId', sessionId);
         window.location.reload();
       } else {
         setErrorMessage('Email/Password is wrong. Take a deep breath and try again!');
