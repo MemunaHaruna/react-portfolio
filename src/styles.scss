@@ -7,8 +7,7 @@ a {
   text-decoration: none;
 }
 
-@mixin bg_image($url, $min-height) {
-  background-image: url($url);
+@mixin bg_image($min-height) {
   content: '';
   background-repeat: repeat;
   background-position: center;
@@ -53,16 +52,41 @@ a {
   }
 }
 
+.divider {
+  display: flex;
+  margin: 1.2em auto;
+  opacity: 0.9;
+  width: 80%;
+
+  .button-box {
+    border: 1px solid white;
+    font-size: 1.1em;
+    margin: 0 0.55em 0 0.55em;
+    padding: 0.5em 1em;
+    width: 18%;
+    text-align: center;
+  }
+
+  .hr {
+    border-bottom: 1px solid white;
+    margin: 0 0 1.5em 0;
+    width: 40%;
+  }
+}
+
 .home-container:before {
-  @include bg_image('images/ben-blennerhassett-G8rRItjrwkA-unsplash.jpg', 600px);
+  background-image: url('images/ben-blennerhassett-G8rRItjrwkA-unsplash.jpg');
+  @include bg_image(600px);
 }
 
 .about-container:before {
-  @include bg_image('images/simon-kuznetsov-vLSc7kNmvP4-unsplash.jpg', 600px);
+  background-image: url('images/simon-kuznetsov-vLSc7kNmvP4-unsplash.jpg');
+  @include bg_image(600px);
 }
 
 .projects-container:before {
-  @include bg_image('images/simon-kuznetsov-vLSc7kNmvP4-unsplash_5472_3648.jpg', 1300px);
+  background-image: url('images/simon-kuznetsov-vLSc7kNmvP4-unsplash_5472_3648.jpg');
+  @include bg_image(1300px);
 }
 
 .home-container,
@@ -75,6 +99,8 @@ a {
   width: 100%;
   z-index: -1;
 }
+
+// home page
 
 .home {
   display: flex;
@@ -97,9 +123,9 @@ a {
     border-right: none;
     height: 190px;
     opacity: 0.6;
-    left: 350px;
+    left: 373px;
     position: absolute;
-    width: 80px;
+    width: 60px;
     top: 263px;
 
     .contact-icons {
@@ -127,14 +153,16 @@ a {
   &-bottom-box {
     position: absolute;
     border: 12px solid #f9f9f9;
-    height: 30px;
-    width: 340px;
-    top: 148px;
-    left: 67px;
+    height: 34px;
+    width: 360px;
+    top: 144px;
+    left: 47px;
     border-top: none;
     border-left: none;
   }
 }
+
+// about me page
 
 .about {
   font-size: 1.2em;
@@ -147,27 +175,7 @@ a {
   padding: 2em;
 }
 
-.divider {
-  display: flex;
-  margin: 1.2em auto;
-  opacity: 0.9;
-  width: 80%;
-
-  .button-box {
-    border: 1px solid white;
-    font-size: 1.1em;
-    margin: 0 0.55em 0 0.55em;
-    padding: 0.5em 1em;
-    width: 18%;
-    text-align: center;
-  }
-
-  .hr {
-    border-bottom: 1px solid white;
-    margin: 0 0 1.5em 0;
-    width: 40%;
-  }
-}
+// projects page
 
 .projects-container {
   min-height: 1300px !important;
@@ -256,6 +264,64 @@ a {
       .small-card:hover {
         border-color: #936c7e;
       }
+    }
+  }
+}
+
+// blogs page
+
+.blogs-container,
+.admin-auth-container,
+.auth-form {
+  color: #462255;
+
+  a {
+    color: #462255 !important;
+  }
+
+  a:hover,
+  a:active,
+  a:focus {
+    color: #aa4465 !important;
+  }
+
+  .navbar {
+    &-toggler {
+      background-color: white;
+      border-color: #462255;
+    }
+  }
+
+  .blogs {
+    margin: 2.5em auto;
+    width: 80%;
+
+    .divider {
+      color: #462255;
+
+      .button-box,
+      .hr {
+        border-color: #462255;
+      }
+    }
+  }
+}
+
+// admin section
+
+.auth-form {
+  form {
+    margin: 3em auto;
+    width: 40%;
+
+    .error-message {
+      color: red;
+      margin: 2em;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 2em;
     }
   }
 }
