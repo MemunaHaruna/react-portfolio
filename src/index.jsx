@@ -12,6 +12,7 @@ import Projects from './components/Projects';
 import BlogPosts from './components/BlogPosts';
 import Admin from './components/Admin';
 import PostForm from './components/PostForm';
+import PostPage from './components/PostPage';
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
 
@@ -40,6 +41,9 @@ const App = () => {
           </Route>
           <Route path="/admin/:slug/edit">
             <PostForm />
+          </Route>
+          <Route path="/posts/:slug">
+            <PostPage />
           </Route>
         </Container>
       </Switch>

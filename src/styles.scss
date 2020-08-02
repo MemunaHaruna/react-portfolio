@@ -287,7 +287,8 @@ a {
 .blogs-container,
 .admin-auth-container,
 .auth-form,
-.post-form-container {
+.post-form-container,
+.post-container {
   color: #462255;
 
   a {
@@ -353,6 +354,10 @@ a {
           margin: 1em 0 0 0;
         }
 
+        a {
+          text-decoration: none;
+        }
+
         a.edit {
           @include active_button;
         }
@@ -373,16 +378,6 @@ a {
     margin: 3em auto;
     width: 40%;
 
-    .error-message {
-      color: red;
-      margin: 2em;
-    }
-
-    .success-message {
-      color: green;
-      margin: 2em;
-    }
-
     button {
       width: 100%;
       margin-top: 2em;
@@ -396,12 +391,25 @@ a {
   }
 }
 
+@mixin display_message($color) {
+  color: $color;
+  margin: 2em;
+}
+
 .post-form {
   width: 80%;
   margin: 0 auto;
 
   form {
     width: 100% !important;
+
+    .error-message {
+      @include display_message(red);
+    }
+
+    .success-message {
+      @include display_message(green);
+    }
 
     button {
       width: 40%;
@@ -416,5 +424,44 @@ a {
 
   a:hover {
     @include active_button_hover;
+  }
+}
+
+// post page
+.post-container {
+  .post {
+    width: 70%;
+    margin: 4em auto;
+    text-align: center;
+
+    &-title {
+      text-transform: capitalize;
+    }
+
+    &-body {
+      margin: 2em auto;
+    }
+
+    &-actions {
+      display: flex;
+      justify-content: center;
+
+      a.edit,
+      button {
+        @include active_button;
+      }
+      a.edit:hover,
+      button:hover {
+        @include active_button_hover;
+      }
+
+      a {
+        margin-right: 1em;
+      }
+      button {
+        background-color: red;
+        margin-left: 1em;
+      }
+    }
   }
 }

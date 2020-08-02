@@ -13,7 +13,9 @@ const Post = ({ id, title, body, createdAt, loggedIn }) => {
   return (
     <li className="post">
       <h5 className="post-title">
-        <b>{title}</b>
+        <Link to={`/posts/${id}`}>
+          <b>{title}</b>
+        </Link>
       </h5>
       <div className="post-created-at">
         <i>{createdAt}</i>
