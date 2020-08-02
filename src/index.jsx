@@ -11,6 +11,9 @@ import About from './components/About';
 import Projects from './components/Projects';
 import BlogPosts from './components/BlogPosts';
 import Admin from './components/Admin';
+import PostForm from './components/PostForm';
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
 
 const App = () => {
   return (
@@ -29,8 +32,14 @@ const App = () => {
           <Route path="/blog">
             <BlogPosts />
           </Route>
-          <Route path="/admin">
+          <Route exact path="/admin">
             <Admin />
+          </Route>
+          <Route path="/admin/create-post">
+            <PostForm />
+          </Route>
+          <Route path="/admin/:slug/edit">
+            <PostForm />
           </Route>
         </Container>
       </Switch>

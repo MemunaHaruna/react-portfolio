@@ -21,6 +21,20 @@ a {
   width: 100%;
 }
 
+@mixin active_button {
+  border: 1px solid #462255;
+  padding: 0.6em 1em;
+  border-radius: 8px;
+  background: #462255;
+  color: white !important;
+  margin: 2em 0;
+}
+
+@mixin active_button_hover {
+  background-color: #aa4465;
+  text-decoration: none;
+}
+
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
@@ -272,7 +286,8 @@ a {
 
 .blogs-container,
 .admin-auth-container,
-.auth-form {
+.auth-form,
+.post-form-container {
   color: #462255;
 
   a {
@@ -304,12 +319,56 @@ a {
         border-color: #462255;
       }
     }
+
+    ul.blog-posts {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      padding-left: 0;
+      text-decoration: none;
+      width: 84%;
+
+      a.create-post-button {
+        @include active_button;
+        margin: 1em 78%;
+        width: 20%;
+      }
+
+      a.create-post-button:hover {
+        @include active_button_hover;
+      }
+
+      li.post {
+        border-bottom: 1px solid lightgray;
+        list-style-type: none;
+        margin: 2em;
+        padding-bottom: 3em;
+        word-break: break-word;
+
+        .post-title {
+          text-transform: capitalize;
+        }
+
+        .post-body {
+          margin: 1em 0 0 0;
+        }
+
+        a.edit {
+          @include active_button;
+        }
+
+        a.edit:hover {
+          @include active_button_hover;
+        }
+      }
+    }
   }
 }
 
 // admin section
 
-.auth-form {
+.auth-form,
+.post-form {
   form {
     margin: 3em auto;
     width: 40%;
@@ -319,9 +378,43 @@ a {
       margin: 2em;
     }
 
+    .success-message {
+      color: green;
+      margin: 2em;
+    }
+
     button {
       width: 100%;
       margin-top: 2em;
+      background-color: #462255;
     }
+
+    button:hover {
+      background-color: #aa4465;
+      border-color: #aa4465;
+    }
+  }
+}
+
+.post-form {
+  width: 80%;
+  margin: 0 auto;
+
+  form {
+    width: 100% !important;
+
+    button {
+      width: 40%;
+      padding: 1em;
+      margin: 2em 30%;
+    }
+  }
+
+  a.back {
+    @include active_button;
+  }
+
+  a:hover {
+    @include active_button_hover;
   }
 }

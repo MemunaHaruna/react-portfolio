@@ -1,6 +1,5 @@
 /* eslint-disable no-plusplus */
-import React, { useState, useEffect } from 'react';
-import { Redirect, Route } from 'react-router';
+import React from 'react';
 import BlogPosts from './BlogPosts';
 import AuthForm from './AuthForm';
 import Header from './Header';
@@ -10,7 +9,7 @@ const Admin = () => {
   if (loggedIn && loggedIn === process.env.PORTFOLIO_SESSION_ID) {
     return (
       <div className="admin-container">
-        <BlogPosts adminDemarcatorTitle="Admin" />
+        <BlogPosts adminDemarcatorTitle="Admin" loggedIn={loggedIn} />
       </div>
     );
   }
