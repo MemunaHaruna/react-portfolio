@@ -9,6 +9,12 @@ import Container from 'react-bootstrap/Container';
 import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
+import BlogPosts from './components/BlogPosts';
+import Admin from './components/Admin';
+import PostForm from './components/PostForm';
+import PostPage from './components/PostPage';
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
 
 const App = () => {
   return (
@@ -23,6 +29,21 @@ const App = () => {
           </Route>
           <Route path="/projects">
             <Projects />
+          </Route>
+          <Route path="/blog">
+            <BlogPosts />
+          </Route>
+          <Route exact path="/admin">
+            <Admin />
+          </Route>
+          <Route path="/admin/create-post">
+            <PostForm />
+          </Route>
+          <Route path="/admin/:slug/edit">
+            <PostForm />
+          </Route>
+          <Route path="/posts/:slug">
+            <PostPage />
           </Route>
         </Container>
       </Switch>

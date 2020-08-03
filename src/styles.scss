@@ -7,8 +7,7 @@ a {
   text-decoration: none;
 }
 
-@mixin bg_image($url, $min-height) {
-  background-image: url($url);
+@mixin bg_image($min-height) {
   content: '';
   background-repeat: repeat;
   background-position: center;
@@ -20,6 +19,20 @@ a {
   position: absolute;
   top: 0;
   width: 100%;
+}
+
+@mixin active_button {
+  border: 1px solid #462255;
+  padding: 0.6em 1em;
+  border-radius: 8px;
+  background: #462255;
+  color: white !important;
+  margin: 2em 0;
+}
+
+@mixin active_button_hover {
+  background-color: #aa4465;
+  text-decoration: none;
 }
 
 .container-fluid {
@@ -53,16 +66,41 @@ a {
   }
 }
 
+.divider {
+  display: flex;
+  margin: 1.2em auto;
+  opacity: 0.9;
+  width: 80%;
+
+  .button-box {
+    border: 1px solid white;
+    font-size: 1.1em;
+    margin: 0 0.55em 0 0.55em;
+    padding: 0.5em 1em;
+    width: 18%;
+    text-align: center;
+  }
+
+  .hr {
+    border-bottom: 1px solid white;
+    margin: 0 0 1.5em 0;
+    width: 40%;
+  }
+}
+
 .home-container:before {
-  @include bg_image('images/ben-blennerhassett-G8rRItjrwkA-unsplash.jpg', 600px);
+  background-image: url('images/ben-blennerhassett-G8rRItjrwkA-unsplash.jpg');
+  @include bg_image(600px);
 }
 
 .about-container:before {
-  @include bg_image('images/simon-kuznetsov-vLSc7kNmvP4-unsplash.jpg', 600px);
+  background-image: url('images/simon-kuznetsov-vLSc7kNmvP4-unsplash.jpg');
+  @include bg_image(600px);
 }
 
 .projects-container:before {
-  @include bg_image('images/simon-kuznetsov-vLSc7kNmvP4-unsplash_5472_3648.jpg', 1300px);
+  background-image: url('images/simon-kuznetsov-vLSc7kNmvP4-unsplash_5472_3648.jpg');
+  @include bg_image(1300px);
 }
 
 .home-container,
@@ -75,6 +113,8 @@ a {
   width: 100%;
   z-index: -1;
 }
+
+// home page
 
 .home {
   display: flex;
@@ -97,9 +137,9 @@ a {
     border-right: none;
     height: 190px;
     opacity: 0.6;
-    left: 350px;
+    left: 373px;
     position: absolute;
-    width: 80px;
+    width: 60px;
     top: 263px;
 
     .contact-icons {
@@ -127,14 +167,16 @@ a {
   &-bottom-box {
     position: absolute;
     border: 12px solid #f9f9f9;
-    height: 30px;
-    width: 340px;
-    top: 148px;
-    left: 67px;
+    height: 34px;
+    width: 360px;
+    top: 144px;
+    left: 47px;
     border-top: none;
     border-left: none;
   }
 }
+
+// about me page
 
 .about {
   font-size: 1.2em;
@@ -147,27 +189,7 @@ a {
   padding: 2em;
 }
 
-.divider {
-  display: flex;
-  margin: 1.2em auto;
-  opacity: 0.9;
-  width: 80%;
-
-  .button-box {
-    border: 1px solid white;
-    font-size: 1.1em;
-    margin: 0 0.55em 0 0.55em;
-    padding: 0.5em 1em;
-    width: 18%;
-    text-align: center;
-  }
-
-  .hr {
-    border-bottom: 1px solid white;
-    margin: 0 0 1.5em 0;
-    width: 40%;
-  }
-}
+// projects page
 
 .projects-container {
   min-height: 1300px !important;
@@ -255,6 +277,190 @@ a {
 
       .small-card:hover {
         border-color: #936c7e;
+      }
+    }
+  }
+}
+
+// blogs page
+
+.blogs-container,
+.admin-auth-container,
+.auth-form,
+.post-form-container,
+.post-container {
+  color: #462255;
+
+  a {
+    color: #462255 !important;
+  }
+
+  a:hover,
+  a:active,
+  a:focus {
+    color: #aa4465 !important;
+  }
+
+  .navbar {
+    &-toggler {
+      background-color: white;
+      border-color: #462255;
+    }
+  }
+
+  .blogs {
+    margin: 2.5em auto;
+    width: 80%;
+
+    .divider {
+      color: #462255;
+
+      .button-box,
+      .hr {
+        border-color: #462255;
+      }
+    }
+
+    ul.blog-posts {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      padding-left: 0;
+      text-decoration: none;
+      width: 84%;
+
+      a.create-post-button {
+        @include active_button;
+        margin: 1em 78%;
+        width: 20%;
+      }
+
+      a.create-post-button:hover {
+        @include active_button_hover;
+      }
+
+      li.post {
+        border-bottom: 1px solid lightgray;
+        list-style-type: none;
+        margin: 2em;
+        padding-bottom: 3em;
+        word-break: break-word;
+
+        .post-title {
+          text-transform: capitalize;
+        }
+
+        .post-body {
+          margin: 1em 0 0 0;
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+        a.edit {
+          @include active_button;
+        }
+
+        a.edit:hover {
+          @include active_button_hover;
+        }
+      }
+    }
+  }
+}
+
+// admin section
+
+.auth-form,
+.post-form {
+  form {
+    margin: 3em auto;
+    width: 40%;
+
+    button {
+      width: 100%;
+      margin-top: 2em;
+      background-color: #462255;
+    }
+
+    button:hover {
+      background-color: #aa4465;
+      border-color: #aa4465;
+    }
+  }
+}
+
+@mixin display_message($color) {
+  color: $color;
+  margin: 2em;
+}
+
+.post-form {
+  width: 80%;
+  margin: 0 auto;
+
+  form {
+    width: 100% !important;
+
+    .error-message {
+      @include display_message(red);
+    }
+
+    .success-message {
+      @include display_message(green);
+    }
+
+    button {
+      width: 40%;
+      padding: 1em;
+      margin: 2em 30%;
+    }
+  }
+
+  a.back {
+    @include active_button;
+  }
+
+  a:hover {
+    @include active_button_hover;
+  }
+}
+
+// post page
+.post-container {
+  .post {
+    width: 70%;
+    margin: 4em auto;
+    text-align: center;
+
+    &-title {
+      text-transform: capitalize;
+    }
+
+    &-body {
+      margin: 2em auto;
+    }
+
+    &-actions {
+      display: flex;
+      justify-content: center;
+
+      a.edit,
+      button {
+        @include active_button;
+      }
+      a.edit:hover,
+      button:hover {
+        @include active_button_hover;
+      }
+
+      a {
+        margin-right: 1em;
+      }
+      button {
+        background-color: red;
+        margin-left: 1em;
       }
     }
   }
