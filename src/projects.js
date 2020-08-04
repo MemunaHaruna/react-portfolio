@@ -2,7 +2,7 @@ export const mainProjects = [
   {
     main: true,
     title: 'illume',
-    url: 'http://illume.herokuapp.com',
+    website: 'http://illume.herokuapp.com',
     description: 'A quotes app that lets you view, create and share your favourite quotes.',
     technologies: ['VueJS', 'Ruby on Rails', 'Bootstrap', 'PostgreSQL'],
     github: 'https://github.com/MemunaHaruna/illume',
@@ -10,7 +10,7 @@ export const mainProjects = [
   {
     main: true,
     title: 'docgenie',
-    url: 'http://docgenie.herokuapp.com',
+    website: 'http://docgenie.herokuapp.com',
     description: 'A documents management app.',
     technologies: ['ReactJS', 'Redux', 'ExpressJS', 'NodeJS', 'PostgreSQL'],
     github: 'https://github.com/MemunaHaruna/docgenie',
@@ -21,7 +21,7 @@ export const extraProjects = [
   {
     main: false,
     title: 'fudie',
-    url: 'https://github.com/MemunaHaruna/fudie-api',
+    website: 'https://github.com/MemunaHaruna/fudie-api',
     description: 'An API for building a community of food enthusiasts.',
     technologies: ['Ruby on Rails', 'PostgreSQL'],
     github: 'https://github.com/MemunaHaruna/fudie-api',
@@ -29,7 +29,7 @@ export const extraProjects = [
   {
     main: false,
     title: 'loopman',
-    url: 'http://andela-loopman.herokuapp.com',
+    website: 'http://andela-loopman.herokuapp.com',
     description: 'An front-end only app for aggregating and displaying news from various sources.',
     technologies: ['ReactJS', 'Flux'],
     github: 'https://github.com/MemunaHaruna/Loopman',
@@ -37,7 +37,7 @@ export const extraProjects = [
   {
     main: false,
     title: 'nirvana',
-    url: 'https://github.com/MemunaHaruna/nirvana',
+    website: 'https://github.com/MemunaHaruna/nirvana',
     description: 'A basic rack-compliant web application server.',
     technologies: ['ReactJS', 'Flux'],
     github: 'https://github.com/MemunaHaruna/nirvana',

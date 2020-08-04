@@ -52,6 +52,13 @@ a {
     color: white;
   }
 
+  &-light &-brand:hover,
+  &-light &-brand.active,
+  &-light &-brand:active,
+  &-light &-brand:focus {
+    color: purple !important;
+  }
+
   &-light .navbar-nav .nav-link {
     color: white;
   }
@@ -64,6 +71,13 @@ a {
     background-color: white;
     border-color: white;
   }
+}
+
+a.nav-link.active,
+a.nav-link:active,
+a.nav-link:hover,
+a.nav-link:focus {
+  color: pink !important;
 }
 
 .divider {
@@ -230,6 +244,28 @@ a {
           overflow: scroll;
           padding: 1em;
           width: 40%;
+
+          .title-section {
+            display: flex;
+            justify-content: space-between;
+
+            .links {
+              padding: 0.3em 0;
+            }
+
+            .links a {
+              color: lightgray;
+              text-decoration: none;
+              padding: 0.2em 0.5em;
+            }
+
+            .links a:hover,
+            a:focus,
+            a.active,
+            a:active {
+              color: pink;
+            }
+          }
 
           .description {
             margin: 1.5em 0;

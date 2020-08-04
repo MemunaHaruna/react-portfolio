@@ -1,5 +1,9 @@
 /* eslint-disable import/no-dynamic-require */
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+
 import Header from './Header';
 import { mainProjects, extraProjects } from '../projects';
 import Demarcator from './demarcator';
@@ -17,24 +21,32 @@ const Projects = () => (
     <section className="projects">
       <Demarcator text="My Projects" />
       <ul className="main-projects">
-        {mainProjects.map(({ title, url, description, technologies }) => (
+        {mainProjects.map(({ title, website, description, technologies, github }) => (
           <li key={title}>
-            <a href={url} target="_blank" rel="noreferrer">
-              <div className="wide-card">
-                <img className="image-section" src={images[title].default} alt="" />
-                <div className="details-section">
+            <div className="wide-card">
+              <img className="image-section" src={images[title].default} alt="" />
+              <div className="details-section">
+                <div className="title-section">
                   <h3>{title.charAt(0).toUpperCase() + title.slice(1)}</h3>
-                  <div className="description">{description}</div>
-                  <div className="tech-ul">
-                    {technologies.map((tech) => (
-                      <div className="tech-li" key={tech}>
-                        {tech}
-                      </div>
-                    ))}
+                  <div className="links">
+                    <a href={website} target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon icon={faExternalLinkAlt} className="icon" />
+                    </a>
+                    <a href={github} target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon icon={faGithub} className="icon" />
+                    </a>
                   </div>
                 </div>
+                <div className="description">{description}</div>
+                <div className="tech-ul">
+                  {technologies.map((tech) => (
+                    <div className="tech-li" key={tech}>
+                      {tech}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </a>
+            </div>
           </li>
         ))}
       </ul>
@@ -42,12 +54,22 @@ const Projects = () => (
       <Demarcator text="More" />
 
       <ul className="extra-projects">
-        {extraProjects.map(({ title, url, description, technologies }) => (
+        {extraProjects.map(({ title, website, description, technologies, github }) => (
           <li key={title}>
-            <a href={url} target="_blank" rel="noreferrer">
+            <a href={website} target="_blank" rel="noreferrer">
               <div className="small-card">
                 <div className="details-section">
-                  <h5>{title.charAt(0).toUpperCase() + title.slice(1)}</h5>
+                  <div className="title-section">
+                    <h3>{title.charAt(0).toUpperCase() + title.slice(1)}</h3>
+                    <div className="links">
+                      <a href={website} target="_blank" rel="noreferrer">
+                        <FontAwesomeIcon icon={faExternalLinkAlt} className="icon" />
+                      </a>
+                      <a href={github} target="_blank" rel="noreferrer">
+                        <FontAwesomeIcon icon={faGithub} className="icon" />
+                      </a>
+                    </div>
+                  </div>
                   <div className="description">{description}</div>
                 </div>
               </div>
