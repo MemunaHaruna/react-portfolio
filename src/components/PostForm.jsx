@@ -64,8 +64,6 @@ const PostForm = () => {
             updatedAt: moment().format('ll'),
           });
       }
-      setTitle('');
-      setBody('');
       setMessage({ success: `Successfully ${slug ? 'updated' : 'created'} Post: ${articleId}` });
     } catch (error) {
       setMessage({ error: `Looks like something went wrong, my love. Here: ${error}` });

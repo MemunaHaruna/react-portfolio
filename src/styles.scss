@@ -1,7 +1,8 @@
-$phone_breakpoint: '425px';
-$tablet_breakpoint: '';
-$laptop_breakpoint: '';
-$large_screen_breakpoint: '';
+$phone_screen_width: '425px';
+$tablet_screen_width: '768px';
+$sm_laptop_screen_width: '1024px';
+$laptop_screen_width: '1440px';
+$large_screens_width: '2560px';
 
 * {
   box-sizing: border-box;
@@ -49,17 +50,17 @@ a {
   font-family: 'Sacramento', cursive;
   font-size: 2.7em;
 
-  @media (max-width: $phone_breakpoint) {
+  @media (max-width: $phone_screen_width) {
     font-size: 1.5em;
+  }
+
+  @media (min-width: $large_screens_width) {
+    font-size: 4em;
   }
 }
 
 .navbar {
   margin: 0 2em;
-
-  // @media (max-width: $phone_breakpoint) {
-  //   font-size: 2em;
-  // }
 
   &-light &-brand {
     color: white;
@@ -214,6 +215,10 @@ a.nav-link:focus {
   width: 60%;
   border: 12px solid white;
   padding: 2em;
+
+  a {
+    color: pink;
+  }
 }
 
 // projects page
@@ -516,7 +521,7 @@ a.nav-link:focus {
 }
 
 // responsiveness
-@media screen and (max-width: $phone_breakpoint) {
+@media screen and (max-width: $sm_laptop_screen_width) {
   .navbar {
     margin: 0 1em;
 
@@ -595,16 +600,14 @@ a.nav-link:focus {
     margin-top: 0.3em;
     padding: 0.8em;
     width: 90%;
-
-    a {
-      color: pink;
-    }
   }
 
   .projects-container {
     overflow: scroll;
 
     .projects {
+      margin-bottom: 2em;
+
       .main-projects,
       .extra-projects {
         .wide-card,
@@ -618,13 +621,18 @@ a.nav-link:focus {
           }
 
           .details-section {
-            font-size: 0.7em;
+            font-size: 0.8em;
             height: auto;
             padding: 1em;
             width: 100%;
 
             .title-section h3 {
               font-size: 1.2em;
+            }
+
+            .tech-ul .tech-li {
+              padding-top: 0.3em;
+              padding-bottom: 0.3em;
             }
           }
         }
@@ -669,6 +677,89 @@ a.nav-link:focus {
         p img {
           width: 100% !important;
           height: 250px;
+        }
+      }
+    }
+  }
+}
+
+// for laptop screens only!
+@media screen and (min-width: $sm_laptop_screen_width) and (max-width: $sm_laptop_screen_width) {
+  .home {
+    &-description-box {
+      font-size: 2em;
+      height: 400px;
+      width: 70%;
+    }
+    &-contact-box {
+      font-size: 1.5em;
+    }
+  }
+}
+
+@media screen and (min-width: $large_screens_width) {
+  .navbar {
+    .nav-link {
+      font-size: 2em;
+    }
+
+    &-toggler {
+      font-size: 2em;
+    }
+  }
+
+  .home {
+    &-description-box {
+      height: 400px;
+      padding: 1.8em;
+      font-size: 2.5em;
+      width: 600px;
+    }
+
+    &-contact-box {
+      height: 410px;
+      left: 880px;
+      width: 85px;
+      top: 412px;
+
+      .contact-icons {
+        a.icon {
+          font-size: 2.4em;
+          margin: 1em 0;
+        }
+      }
+    }
+
+    &-bottom-box {
+      height: 65px;
+      width: 540px;
+      top: 333px;
+      left: 71px;
+    }
+  }
+
+  .about {
+    font-size: 3em;
+  }
+
+  .projects-container:before {
+    min-height: 2000px;
+  }
+
+  .projects-container {
+    min-height: 2000px !important;
+
+    .projects {
+      .main-projects,
+      .extra-projects {
+        .wide-card,
+        .small-card {
+          .details-section {
+            font-size: 1.5em;
+            .title-section h3 {
+              font-size: 2em;
+            }
+          }
         }
       }
     }
