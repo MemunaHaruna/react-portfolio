@@ -56,24 +56,22 @@ const Projects = () => (
       <ul className="extra-projects">
         {extraProjects.map(({ title, website, description, technologies, github }) => (
           <li key={title}>
-            <a href={website} target="_blank" rel="noreferrer">
-              <div className="small-card">
-                <div className="details-section">
-                  <div className="title-section">
-                    <h3>{title.charAt(0).toUpperCase() + title.slice(1)}</h3>
-                    <div className="links">
-                      <a href={website} target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon icon={faExternalLinkAlt} className="icon" />
-                      </a>
-                      <a href={github} target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon icon={faGithub} className="icon" />
-                      </a>
-                    </div>
+            <div className="small-card">
+              <div className="details-section">
+                <div className="title-section">
+                  <h3>{title.charAt(0).toUpperCase() + title.slice(1)}</h3>
+                  <div className="links">
+                    <a href={website} target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon icon={faExternalLinkAlt} className="icon" />
+                    </a>
+                    <a href={github} target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon icon={faGithub} className="icon" />
+                    </a>
                   </div>
-                  <div className="description">{description}</div>
                 </div>
+                <div className="description">{description}</div>
               </div>
-            </a>
+            </div>
           </li>
         ))}
       </ul>

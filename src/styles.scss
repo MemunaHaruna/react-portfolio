@@ -1,3 +1,8 @@
+$phone_breakpoint: '425px';
+$tablet_breakpoint: '';
+$laptop_breakpoint: '';
+$large_screen_breakpoint: '';
+
 * {
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
@@ -43,10 +48,18 @@ a {
 .brand {
   font-family: 'Sacramento', cursive;
   font-size: 2.7em;
+
+  @media (max-width: $phone_breakpoint) {
+    font-size: 1.5em;
+  }
 }
 
 .navbar {
   margin: 0 2em;
+
+  // @media (max-width: $phone_breakpoint) {
+  //   font-size: 2em;
+  // }
 
   &-light &-brand {
     color: white;
@@ -498,6 +511,68 @@ a.nav-link:focus {
         background-color: red;
         margin-left: 1em;
       }
+    }
+  }
+}
+
+// responsiveness
+@media screen and (max-width: $phone_breakpoint) {
+  .navbar {
+    margin: 0 1em;
+
+    .nav-link {
+      font-size: 0.8em;
+      padding: 0.3em 0;
+    }
+
+    &-toggler {
+      padding: 0.1rem 0.15rem;
+      font-size: 1em;
+    }
+  }
+
+  .nav-link {
+    padding: 0.5em;
+  }
+
+  .home {
+    &-description-box {
+      height: 300px;
+      margin: 0;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      width: 80%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    &-contact-box {
+      border: none;
+      height: 50px;
+      opacity: 1;
+      left: 25%;
+      position: absolute;
+      width: 50%;
+      top: 70%;
+
+      .contact-icons {
+        flex-direction: row;
+        font-size: 1em;
+        justify-content: space-around;
+        margin-top: 1.2em;
+
+        a.icon {
+          font-size: 1.3em;
+          justify-content: center;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+
+    &-bottom-box {
+      display: none;
     }
   }
 }
