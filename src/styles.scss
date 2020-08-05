@@ -481,7 +481,7 @@ a.nav-link:focus {
   .post {
     width: 70%;
     margin: 4em auto;
-    text-align: center;
+    text-align: left;
 
     &-title {
       text-transform: capitalize;
@@ -535,6 +535,19 @@ a.nav-link:focus {
     padding: 0.5em;
   }
 
+  .blogs-container .blogs .divider,
+  .admin-auth-container .blogs .divider,
+  .auth-form .blogs .divider,
+  .post-form-container .blogs .divider,
+  .post-container .blogs .divider,
+  .divider {
+    .button-box {
+      font-size: 1em;
+      padding: 0.5em;
+      width: 70%;
+    }
+  }
+
   .home {
     &-description-box {
       height: 300px;
@@ -573,6 +586,91 @@ a.nav-link:focus {
 
     &-bottom-box {
       display: none;
+    }
+  }
+
+  .about {
+    border: none;
+    font-size: 0.9em;
+    margin-top: 0.3em;
+    padding: 0.8em;
+    width: 90%;
+
+    a {
+      color: pink;
+    }
+  }
+
+  .projects-container {
+    overflow: scroll;
+
+    .projects {
+      .main-projects,
+      .extra-projects {
+        .wide-card,
+        .small-card {
+          border-width: 5px;
+          flex-direction: column;
+          margin: 1em 0;
+
+          .image-section {
+            width: 100%;
+          }
+
+          .details-section {
+            font-size: 0.7em;
+            height: auto;
+            padding: 1em;
+            width: 100%;
+
+            .title-section h3 {
+              font-size: 1.2em;
+            }
+          }
+        }
+      }
+
+      .extra-projects {
+        flex-direction: column;
+
+        li {
+          width: 100%;
+          padding: 0.6em;
+
+          .small-card {
+            border-width: 1px;
+            margin: 0;
+
+            .details-section .description {
+              margin: 0.3em;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .blogs-container .blogs ul.blog-posts,
+  .admin-auth-container .blogs ul.blog-posts,
+  .auth-form .blogs ul.blog-posts,
+  .post-form-container .blogs ul.blog-posts,
+  .post-container .blogs ul.blog-posts {
+    width: 100%;
+
+    a.create-post-button {
+      width: 63%;
+      margin: 1em auto;
+    }
+
+    li.post {
+      margin: 1.2em;
+
+      .post-body {
+        p img {
+          width: 100% !important;
+          height: 250px;
+        }
+      }
     }
   }
 }
