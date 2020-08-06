@@ -116,6 +116,11 @@ a.nav-link:focus {
   }
 }
 
+.spinner {
+  margin: 0 auto;
+  color: #462255;
+}
+
 .home-container:before {
   background-image: url('images/ben-blennerhassett-G8rRItjrwkA-unsplash.jpg');
   @include bg_image(600px);

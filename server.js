@@ -3,8 +3,15 @@ const express = require('express');
 const webpack = require('webpack');
 const logger = require('morgan');
 const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const dotenv = require('dotenv');
 
-const config = require('./webpack.config.js');
+const webpackConfigDev = require('./webpack.config');
+const webpackConfigProd = require('./webpack.config.prod.js');
+
+dotenv.config();
+
+const config = process.env.NODE_ENV === 'production' ? webpackConfigProd : webpackConfigDev;
 
 const compiler = webpack(config);
 
@@ -21,12 +28,12 @@ app.use(
   })
 );
 
-app.use(require('webpack-hot-middleware')(compiler));
+app.use(webpackHotMiddleware(compiler));
 
 app.use(express.static(path.resolve(`${__dirname}/public`)));
 
 // Setup a default catch-all route that sends back a
-// welcome message in JSON format.
+// welcome message
 
 app.get('*', (request, response) => {
   response.sendFile(path.resolve(`${__dirname}/public/index.html`));
