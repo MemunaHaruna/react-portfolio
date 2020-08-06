@@ -1,11 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'dist');
 const APP_DIR = path.resolve(__dirname, 'src');
 
 module.exports = {
+  mode: 'production',
   devtool: 'source-map',
   entry: `${APP_DIR}/index.jsx`,
   output: {
@@ -15,9 +15,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-  },
-  optimization: {
-    minimizer: [new UglifyJsPlugin()],
   },
   module: {
     rules: [

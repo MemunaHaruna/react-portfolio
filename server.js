@@ -6,25 +6,28 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const dotenv = require('dotenv');
 
+dotenv.config();
+
 const webpackConfigDev = require('./webpack.config');
 const webpackConfigProd = require('./webpack.config.prod');
 
-dotenv.config();
+const webpackConfig = process.env.NODE_ENV === 'production' ? webpackConfigProd : webpackConfigDev;
 
-const config = process.env.NODE_ENV === 'production' ? webpackConfigProd : webpackConfigDev;
-
-const compiler = webpack(config);
+const compiler = webpack(webpackConfig);
 
 const app = express();
 
 // Log requests to the console.
 app.use(logger('dev'));
 
+console.log(process.env.NODE_ENV, 'ENVVV');
+console.log(webpackConfig, 'webpackConfig');
+
 // Tell express to use the webpack-dev-middleware and use the webpack.config.js
 // configuration file as a base.
 app.use(
   webpackDevMiddleware(compiler, {
-    publicPath: config.output.publicPath,
+    publicPath: webpackConfig.output.publicPath,
   })
 );
 
