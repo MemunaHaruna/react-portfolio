@@ -13,7 +13,9 @@ const webpackConfigProd = require('./webpack.config.prod.js');
 
 const environment = process.env.NODE_ENV || 'production';
 
-const webpackConfig = environment === 'production' ? webpackConfigProd : webpackConfigDev;
+const webpackConfig = webpackConfigProd;
+
+// environment === 'production' ? webpackConfigProd : webpackConfigDev;
 
 const compiler = webpack(webpackConfig);
 
