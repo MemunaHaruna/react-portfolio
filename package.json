@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.config.js",
-    "build": "rm -rf dist && webpack --mode production --config webpack.server.config.js && webpack --mode production --config webpack.prod.config.js",
+    "build-dist": "rm -rf dist && webpack --mode production --config webpack.server.config.js && webpack --mode production --config webpack.prod.config.js",
     "start-dev": "npm run build:dev && node ./dist/server.js",
     "start": "node ./dist/server.js"
   },
@@ -62,8 +62,7 @@
     "webpack-hot-middleware": "^2.25.0",
     "webpack-node-externals": "^2.5.0",
     "mini-css-extract-plugin": "^0.4.5",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "webpack-cli": "^3.3.12"
+    "optimize-css-assets-webpack-plugin": "^5.0.3"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
@@ -76,6 +75,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^3.0.0",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "webpack-cli": "^3.3.12"
   }
 }
