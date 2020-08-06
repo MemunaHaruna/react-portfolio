@@ -8,10 +8,12 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const webpackConfigDev = require('./webpack.config');
-const webpackConfigProd = require('./webpack.config.prod');
+const webpackConfigDev = require('./webpack.config.js');
+const webpackConfigProd = require('./webpack.config.prod.js');
 
-const webpackConfig = process.env.NODE_ENV === 'production' ? webpackConfigProd : webpackConfigDev;
+const environment = process.env.NODE_ENV || 'production';
+
+const webpackConfig = environment === 'production' ? webpackConfigProd : webpackConfigDev;
 
 const compiler = webpack(webpackConfig);
 
