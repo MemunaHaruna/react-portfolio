@@ -19,10 +19,15 @@ const compiler = webpack(webpackConfigProd);
 
 const app = express();
 
+const port = parseInt(process.env.PORT, 10) || 5000;
+
+app.set('port', port);
+
 // Log requests to the console.
 app.use(logger('dev'));
 
 console.log(process.env.NODE_ENV, 'ENVVV');
+console.log(webpackConfigProd, 'webpackConfigProd');
 
 // Tell express to use the webpack-dev-middleware and use the webpack.config.js
 // configuration file as a base.
@@ -44,6 +49,6 @@ app.get('*', (request, response) => {
 });
 
 // Serve the files on port 3000.
-app.listen(3000, () => {
-  console.log('My portfolio listening on port 3000!\n');
+app.listen(port, () => {
+  console.log(`\nApplication is running in ${app.get('env')} on port ${port} `);
 });
