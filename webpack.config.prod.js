@@ -1,17 +1,29 @@
 const webpack = require('webpack');
 const path = require('path');
+const MinifyPlugin = require('babel-minify-webpack-plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'dist');
 const APP_DIR = path.resolve(__dirname, 'src');
 
 module.exports = {
   mode: 'production',
-  devtool: 'source-map',
+  devtool: '',
   entry: `${APP_DIR}/index.jsx`,
   output: {
     path: BUILD_DIR,
     publicPath: '/',
     filename: 'bundle.js',
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -61,12 +73,15 @@ module.exports = {
     ],
   },
   plugins: [
+    // load `moment/locale/ja.js` and `moment/locale/it.js`
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /ja|it/),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production'),
+      'process.env.NODE_ENV': 'production',
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
     }),
+    new MinifyPlugin({}, {}),
   ],
 };
