@@ -6,12 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && webpack --mode development",
-    "start:dev": "node .dist/server.js",
     "build:dev": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.config.js",
     "build:prod": "rm -rf dist && webpack --mode production --config webpack.server.config.js && webpack --mode production --config webpack.prod.config.js",
-    "start": "node ./dist/server.js",
-    "start-prod": "npm run build:prod && npm start",
-    "start-dev": "npm run build:dev && npm start"
+    "start-dev": "npm run build:dev && node ./dist/server.js",
+    "start": "npm run build:prod && node ./dist/server.js"
   },
   "repository": {
     "type": "git",
