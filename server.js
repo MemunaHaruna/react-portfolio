@@ -7,7 +7,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const dotenv = require('dotenv');
 
 const webpackConfigDev = require('./webpack.config');
-const webpackConfigProd = require('./webpack.config.prod.js');
+const webpackConfigProd = require('./webpack.config.prod');
 
 dotenv.config();
 
