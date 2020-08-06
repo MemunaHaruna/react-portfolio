@@ -2,26 +2,20 @@ const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const logger = require('morgan');
-const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const dotenv = require('dotenv');
 
 dotenv.config();
 
 const webpackConfigProd = require('./webpack.config.prod.js');
-const webpackConfigDev = require('./webpack.config.dev.js');
 
-const environment = 'production';
+// const webpackConfigDev = require('./webpack.config.dev.js');
+// const environment = 'production';
 
-let webpackConfig = '';
+// const webpackConfig = webpackConfigProd;
 
-if (environment === 'production') {
-  webpackConfig = webpackConfigProd;
-} else {
-  webpackConfig = webpackConfigDev;
-}
-
-const compiler = webpack(webpackConfig);
+const compiler = webpack(webpackConfigProd);
 
 const app = express();
 
@@ -29,13 +23,12 @@ const app = express();
 app.use(logger('dev'));
 
 console.log(process.env.NODE_ENV, 'ENVVV');
-console.log(webpackConfig, 'webpackConfig');
 
 // Tell express to use the webpack-dev-middleware and use the webpack.config.js
 // configuration file as a base.
 app.use(
-  webpackDevMiddleware(compiler, {
-    publicPath: webpackConfig.output.publicPath,
+  webpackMiddleware(compiler, {
+    publicPath: webpackConfigProd.output.publicPath,
   })
 );
 
