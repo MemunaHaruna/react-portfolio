@@ -1,19 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
-const dotenv = require('dotenv');
 const MinifyPlugin = require('babel-minify-webpack-plugin');
 
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const BUILD_DIR = path.join(__dirname, 'dist');
-
-const env = dotenv.config().parsed;
-const envKeys = Object.keys(env).reduce((prev, next) => {
-  prev[`process.env.${next}`] = JSON.stringify(env[next]);
-  return prev;
-}, {});
 
 module.exports = {
   mode: 'production',
@@ -101,10 +93,5 @@ module.exports = {
       jQuery: 'jquery',
     }),
     new MinifyPlugin({}, {}),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-    }),
-    new webpack.DefinePlugin(envKeys),
   ],
 };
