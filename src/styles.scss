@@ -126,18 +126,12 @@ a.nav-link:focus {
   @include bg_image(600px);
 }
 
-.about-container:before {
-  background-image: url('images/simon-kuznetsov-vLSc7kNmvP4-unsplash.jpg');
-  @include bg_image(600px);
-}
-
 .projects-container:before {
   background-image: url('images/simon-kuznetsov-vLSc7kNmvP4-unsplash_5472_3648.jpg');
   @include bg_image(1300px);
 }
 
 .home-container,
-.about-container,
 .projects-container {
   background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(60, 9, 108, 1) 100%);
   color: white;
@@ -210,7 +204,11 @@ a.nav-link:focus {
 }
 
 // about me page
-
+.about-container {
+  background: white;
+  height: 100%;
+  min-height: 600px;
+}
 .about {
   font-size: 1.2em;
   opacity: 0.9;
@@ -342,7 +340,7 @@ a.nav-link:focus {
 }
 
 // blogs page
-
+.about-container,
 .blogs-container,
 .admin-auth-container,
 .auth-form,
@@ -408,7 +406,6 @@ a.nav-link:focus {
         .post-title {
           text-transform: capitalize;
         }
-
         .post-body {
           margin: 1em 0 0 0;
         }

@@ -47,7 +47,7 @@ const PostPage = () => {
           <b>{title}</b>
         </h5>
         <div className="post-created-at">
-          <i>{createdAt}</i>
+          <i>{createdAt && createdAt.slice(4)}</i>
         </div>
         <div
           className="post-body"
