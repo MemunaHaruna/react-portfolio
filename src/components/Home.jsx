@@ -31,14 +31,24 @@ const Home = () => {
         <div className="home-description-box">{typed}</div>
         <div className="home-contact-box">
           <div className="contact-icons">
-            <a href="https://github.com/MemunaHaruna">
-              <FontAwesomeIcon icon={faGithub} className="icon" />
+            <a
+              href="https://github.com/MemunaHaruna"
+              target="_blank"
+              rel="noreferrer"
+              className="icon"
+            >
+              <FontAwesomeIcon icon={faGithub} />
             </a>
-            <a href="https://linkedin.com/in/memuna-ojonugwa-haruna">
-              <FontAwesomeIcon icon={faLinkedinIn} className="icon" />
+            <a
+              href="https://linkedin.com/in/memuna-ojonugwa-haruna"
+              target="_blank"
+              rel="noreferrer"
+              className="icon"
+            >
+              <FontAwesomeIcon icon={faLinkedinIn} />
             </a>
-            <a href="mailto:mmharuna16@gmail.com">
-              <FontAwesomeIcon icon={faEnvelope} className="icon" />
+            <a href="mailto:mmharuna16@gmail.com" target="_blank" rel="noreferrer" className="icon">
+              <FontAwesomeIcon icon={faEnvelope} />
             </a>
           </div>
           <div className="home-bottom-box" />

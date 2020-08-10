@@ -1,3 +1,9 @@
+$phone_screen_width: '425px';
+$tablet_screen_width: '768px';
+$sm_laptop_screen_width: '1024px';
+$laptop_screen_width: '1440px';
+$large_screens_width: '2560px';
+
 * {
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
@@ -43,6 +49,14 @@ a {
 .brand {
   font-family: 'Sacramento', cursive;
   font-size: 2.7em;
+
+  @media (max-width: $phone_screen_width) {
+    font-size: 1.9em;
+  }
+
+  @media (min-width: $large_screens_width) {
+    font-size: 4em;
+  }
 }
 
 .navbar {
@@ -50,6 +64,13 @@ a {
 
   &-light &-brand {
     color: white;
+  }
+
+  &-light &-brand:hover,
+  &-light &-brand.active,
+  &-light &-brand:active,
+  &-light &-brand:focus {
+    color: purple !important;
   }
 
   &-light .navbar-nav .nav-link {
@@ -64,6 +85,13 @@ a {
     background-color: white;
     border-color: white;
   }
+}
+
+a.nav-link.active,
+a.nav-link:active,
+a.nav-link:hover,
+a.nav-link:focus {
+  color: pink !important;
 }
 
 .divider {
@@ -88,13 +116,13 @@ a {
   }
 }
 
-.home-container:before {
-  background-image: url('images/ben-blennerhassett-G8rRItjrwkA-unsplash.jpg');
-  @include bg_image(600px);
+.spinner {
+  margin: 0 auto;
+  color: #462255;
 }
 
-.about-container:before {
-  background-image: url('images/simon-kuznetsov-vLSc7kNmvP4-unsplash.jpg');
+.home-container:before {
+  background-image: url('images/ben-blennerhassett-G8rRItjrwkA-unsplash.jpg');
   @include bg_image(600px);
 }
 
@@ -104,7 +132,6 @@ a {
 }
 
 .home-container,
-.about-container,
 .projects-container {
   background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(60, 9, 108, 1) 100%);
   color: white;
@@ -177,7 +204,11 @@ a {
 }
 
 // about me page
-
+.about-container {
+  background: white;
+  height: 100%;
+  min-height: 600px;
+}
 .about {
   font-size: 1.2em;
   opacity: 0.9;
@@ -187,6 +218,10 @@ a {
   width: 60%;
   border: 12px solid white;
   padding: 2em;
+
+  a {
+    color: pink;
+  }
 }
 
 // projects page
@@ -230,6 +265,28 @@ a {
           overflow: scroll;
           padding: 1em;
           width: 40%;
+
+          .title-section {
+            display: flex;
+            justify-content: space-between;
+
+            .links {
+              padding: 0.3em 0;
+            }
+
+            .links a {
+              color: lightgray;
+              text-decoration: none;
+              padding: 0.2em 0.5em;
+            }
+
+            .links a:hover,
+            a:focus,
+            a.active,
+            a:active {
+              color: pink;
+            }
+          }
 
           .description {
             margin: 1.5em 0;
@@ -283,7 +340,7 @@ a {
 }
 
 // blogs page
-
+.about-container,
 .blogs-container,
 .admin-auth-container,
 .auth-form,
@@ -349,7 +406,6 @@ a {
         .post-title {
           text-transform: capitalize;
         }
-
         .post-body {
           margin: 1em 0 0 0;
         }
@@ -432,7 +488,7 @@ a {
   .post {
     width: 70%;
     margin: 4em auto;
-    text-align: center;
+    text-align: left;
 
     &-title {
       text-transform: capitalize;
@@ -461,6 +517,301 @@ a {
       button {
         background-color: red;
         margin-left: 1em;
+      }
+    }
+  }
+}
+
+// responsiveness
+@media screen and (max-width: $sm_laptop_screen_width) {
+  .navbar {
+    margin: 0 1em;
+
+    &-nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-link {
+      font-size: 1.1em;
+      padding: 0.5em 1em;
+    }
+
+    &-toggler {
+      padding: 0.1rem 0.15rem;
+      font-size: 1em;
+    }
+  }
+
+  .nav-link {
+    padding: 0.5em;
+  }
+
+  .blogs-container .blogs .divider,
+  .admin-auth-container .blogs .divider,
+  .auth-form .blogs .divider,
+  .post-form-container .blogs .divider,
+  .post-container .blogs .divider,
+  .divider {
+    .button-box {
+      font-size: 1em;
+      padding: 0.5em;
+      width: 70%;
+    }
+  }
+
+  .home {
+    &-description-box {
+      height: 300px;
+      margin: 0;
+      position: absolute;
+      top: 58%;
+      left: 50%;
+      width: 80%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    &-contact-box {
+      border: none;
+      height: 50px;
+      opacity: 1;
+      left: 25%;
+      position: absolute;
+      width: 50%;
+      top: 70%;
+
+      .contact-icons {
+        flex-direction: row;
+        font-size: 1em;
+        justify-content: space-around;
+        margin-top: 1.2em;
+
+        a.icon {
+          font-size: 1.3em;
+          justify-content: center;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+
+    &-bottom-box {
+      display: none;
+    }
+  }
+
+  .about {
+    border: none;
+    font-size: 0.9em;
+    margin-top: 0.3em;
+    padding: 0.8em;
+    width: 90%;
+  }
+
+  .projects-container {
+    overflow: scroll;
+
+    .projects {
+      margin-bottom: 2em;
+
+      .main-projects,
+      .extra-projects {
+        .wide-card,
+        .small-card {
+          border-width: 5px;
+          flex-direction: column;
+          margin: 1em 0;
+
+          .image-section {
+            width: 100%;
+          }
+
+          .details-section {
+            font-size: 1em;
+            height: auto;
+            padding: 1em;
+            width: 100%;
+
+            .title-section h3 {
+              font-size: 1.2em;
+            }
+
+            .tech-ul .tech-li {
+              padding-top: 0.3em;
+              padding-bottom: 0.3em;
+            }
+          }
+        }
+      }
+
+      .extra-projects {
+        flex-direction: column;
+
+        li {
+          width: 100%;
+          padding: 0.6em;
+
+          .small-card {
+            border-width: 1px;
+            margin: 0;
+
+            .details-section .description {
+              margin: 0.3em;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .blogs-container .blogs ul.blog-posts,
+  .admin-auth-container .blogs ul.blog-posts,
+  .auth-form .blogs ul.blog-posts,
+  .post-form-container .blogs ul.blog-posts,
+  .post-container .blogs ul.blog-posts {
+    width: 100%;
+
+    a.create-post-button {
+      width: 63%;
+      margin: 1em auto;
+    }
+
+    li.post {
+      margin: 1.2em;
+
+      .post-body {
+        p img {
+          width: 100% !important;
+          height: 250px;
+        }
+      }
+    }
+  }
+}
+
+// for laptop screens only!
+@media screen and (min-width: $sm_laptop_screen_width) and (max-width: $sm_laptop_screen_width) {
+  .home {
+    &-description-box {
+      font-size: 1.7em;
+      height: 300px;
+      width: 60%;
+    }
+    &-contact-box {
+      font-size: 1.5em;
+    }
+  }
+}
+
+@media screen and (min-width: $laptop_screen_width) and (max-width: 2559px) {
+  .home {
+    &-description-box {
+      height: 300px;
+      margin: 0;
+      position: absolute;
+      top: 58%;
+      left: 50%;
+      width: 45%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    &-contact-box {
+      border: none;
+      height: 50px;
+      opacity: 1;
+      left: 25%;
+      position: absolute;
+      width: 50%;
+      top: 70%;
+
+      .contact-icons {
+        flex-direction: row;
+        font-size: 1em;
+        justify-content: space-around;
+        margin-top: 1.2em;
+
+        a.icon {
+          font-size: 1.3em;
+          justify-content: center;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+
+    &-bottom-box {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: $large_screens_width) {
+  .navbar {
+    .nav-link {
+      font-size: 2em;
+    }
+
+    &-toggler {
+      font-size: 2em;
+    }
+  }
+
+  .home {
+    &-description-box {
+      height: 400px;
+      padding: 1.8em;
+      font-size: 2.5em;
+      width: 600px;
+    }
+
+    &-contact-box {
+      height: 410px;
+      left: 880px;
+      width: 85px;
+      top: 412px;
+
+      .contact-icons {
+        a.icon {
+          font-size: 2.4em;
+          margin: 1em 0;
+        }
+      }
+    }
+
+    &-bottom-box {
+      height: 65px;
+      width: 540px;
+      top: 333px;
+      left: 71px;
+    }
+  }
+
+  .about {
+    font-size: 3em;
+  }
+
+  .projects-container:before {
+    min-height: 2000px;
+  }
+
+  .projects-container {
+    min-height: 2000px !important;
+
+    .projects {
+      .main-projects,
+      .extra-projects {
+        .wide-card,
+        .small-card {
+          .details-section {
+            font-size: 1.5em;
+            .title-section h3 {
+              font-size: 2em;
+            }
+          }
+        }
       }
     }
   }

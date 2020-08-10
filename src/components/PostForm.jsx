@@ -4,7 +4,6 @@ import { Link, useParams } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FroalaEditor from 'react-froala-wysiwyg';
-import moment from 'moment';
 import firestore from '../firebase';
 import Header from './Header';
 import editorConfig from '../editorConfig';
@@ -39,17 +38,14 @@ const PostForm = () => {
     try {
       if (slug) {
         // update
-        await firestore
-          .collection('articles')
-          .doc(slug)
-          .set(
-            {
-              title,
-              body,
-              updatedAt: moment().format('ll'),
-            },
-            { merge: true }
-          );
+        await firestore.collection('articles').doc(slug).set(
+          {
+            title,
+            body,
+            updatedAt: new Date().toDateString(),
+          },
+          { merge: true }
+        );
       } else {
         // create
         await firestore
@@ -60,12 +56,10 @@ const PostForm = () => {
             title,
             body,
             tags: ['ruby'],
-            createdAt: moment().format('ll'),
-            updatedAt: moment().format('ll'),
+            createdAt: new Date().toDateString(),
+            updatedAt: new Date().toDateString(),
           });
       }
-      setTitle('');
-      setBody('');
       setMessage({ success: `Successfully ${slug ? 'updated' : 'created'} Post: ${articleId}` });
     } catch (error) {
       setMessage({ error: `Looks like something went wrong, my love. Here: ${error}` });

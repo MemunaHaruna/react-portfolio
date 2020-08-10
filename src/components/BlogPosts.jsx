@@ -1,13 +1,14 @@
 /* eslint-disable no-plusplus */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
+import Spinner from 'react-bootstrap/Spinner';
 import firestore from '../firebase';
 import Header from './Header';
 import Demarcator from './demarcator';
 import Post from './Post';
 
 const BlogPosts = ({ adminDemarcatorTitle, loggedIn }) => {
+  const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   let unsubscribe;
 
@@ -17,8 +18,10 @@ const BlogPosts = ({ adminDemarcatorTitle, loggedIn }) => {
       try {
         unsubscribe = firestore.collection('articles').onSnapshot((articlesSnapshot) => {
           articlesSnapshot.forEach((doc) => setPosts((po) => po.concat(doc.data())));
+          setLoading(false);
         });
       } catch (error) {
+        setLoading(false);
         console.error('Error fetching articles snapshot', error);
       }
     }
@@ -27,8 +30,6 @@ const BlogPosts = ({ adminDemarcatorTitle, loggedIn }) => {
 
     return unsubscribe;
   }, []);
-
-  console.log(posts, 'posts');
 
   return (
     <div className="blogs-container">
@@ -41,6 +42,13 @@ const BlogPosts = ({ adminDemarcatorTitle, loggedIn }) => {
               Create New Post
             </Link>
           )}
+
+          {loading && (
+            <Spinner animation="border" role="status" className="spinner">
+              <span className="sr-only">Loading...</span>
+            </Spinner>
+          )}
+
           {posts.map(({ id, title, body, createdAt }) => (
             <Post
               key={id}

@@ -18,7 +18,7 @@ const Post = ({ id, title, body, createdAt, loggedIn }) => {
         </Link>
       </h5>
       <div className="post-created-at">
-        <i>{createdAt}</i>
+        <i>{createdAt.slice(4)}</i>
       </div>
       <div
         className="post-body"
