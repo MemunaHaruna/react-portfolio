@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Resume from '../docs/Memuna_Haruna_CV.pdf';
 
 const Header = () => (
   <Navbar expand="lg">
@@ -13,7 +14,7 @@ const Header = () => (
         <Nav.Link href="/about">About</Nav.Link>
         <Nav.Link href="/projects">Projects</Nav.Link>
         <Nav.Link href="/blog">Blog</Nav.Link>
-        <Nav.Link href="https://bit.ly/2XjBA9h" target="_blank" rel="noreferrer" className="resume">
+        <Nav.Link href={Resume} target="_blank" rel="noreferrer" className="resume">
           Resume
         </Nav.Link>
       </Nav>

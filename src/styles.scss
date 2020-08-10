@@ -51,7 +51,7 @@ a {
   font-size: 2.7em;
 
   @media (max-width: $phone_screen_width) {
-    font-size: 1.5em;
+    font-size: 1.9em;
   }
 
   @media (min-width: $large_screens_width) {
@@ -527,9 +527,15 @@ a.nav-link:focus {
   .navbar {
     margin: 0 1em;
 
+    &-nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .nav-link {
-      font-size: 0.8em;
-      padding: 0.3em 0;
+      font-size: 1.1em;
+      padding: 0.5em 1em;
     }
 
     &-toggler {
@@ -560,7 +566,7 @@ a.nav-link:focus {
       height: 300px;
       margin: 0;
       position: absolute;
-      top: 60%;
+      top: 58%;
       left: 50%;
       width: 80%;
       -ms-transform: translate(-50%, -50%);
@@ -623,7 +629,7 @@ a.nav-link:focus {
           }
 
           .details-section {
-            font-size: 0.8em;
+            font-size: 1em;
             height: auto;
             padding: 1em;
             width: 100%;
@@ -689,12 +695,55 @@ a.nav-link:focus {
 @media screen and (min-width: $sm_laptop_screen_width) and (max-width: $sm_laptop_screen_width) {
   .home {
     &-description-box {
-      font-size: 2em;
-      height: 400px;
-      width: 70%;
+      font-size: 1.7em;
+      height: 300px;
+      width: 60%;
     }
     &-contact-box {
       font-size: 1.5em;
+    }
+  }
+}
+
+@media screen and (min-width: $laptop_screen_width) and (max-width: 2559px) {
+  .home {
+    &-description-box {
+      height: 300px;
+      margin: 0;
+      position: absolute;
+      top: 58%;
+      left: 50%;
+      width: 45%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    &-contact-box {
+      border: none;
+      height: 50px;
+      opacity: 1;
+      left: 25%;
+      position: absolute;
+      width: 50%;
+      top: 70%;
+
+      .contact-icons {
+        flex-direction: row;
+        font-size: 1em;
+        justify-content: space-around;
+        margin-top: 1.2em;
+
+        a.icon {
+          font-size: 1.3em;
+          justify-content: center;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+
+    &-bottom-box {
+      display: none;
     }
   }
 }
