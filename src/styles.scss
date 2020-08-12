@@ -116,9 +116,21 @@ a.nav-link:focus {
   }
 }
 
+@mixin divider_color {
+  .divider {
+    color: #462255;
+
+    .button-box,
+    .hr {
+      border-color: #462255;
+    }
+  }
+}
+
 .spinner {
   margin: 0 auto;
   color: #462255;
+  text-align: center;
 }
 
 .home-container:before {
@@ -126,13 +138,7 @@ a.nav-link:focus {
   @include bg_image(600px);
 }
 
-.projects-container:before {
-  background-image: url('images/simon-kuznetsov-vLSc7kNmvP4-unsplash_5472_3648.jpg');
-  @include bg_image(1300px);
-}
-
-.home-container,
-.projects-container {
+.home-container {
   background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(60, 9, 108, 1) 100%);
   color: white;
   height: 100%;
@@ -210,14 +216,17 @@ a.nav-link:focus {
   min-height: 600px;
 }
 .about {
+  .divider {
+    width: auto;
+  }
+  @include divider_color;
+
   font-size: 1.2em;
   opacity: 0.9;
   margin-right: auto;
   margin-left: auto;
   margin-top: 2em;
-  width: 60%;
-  border: 12px solid white;
-  padding: 2em;
+  width: 70%;
 
   a {
     color: pink;
@@ -230,6 +239,8 @@ a.nav-link:focus {
   min-height: 1300px !important;
 
   .projects {
+    @include divider_color;
+
     ul,
     li {
       padding: 0;
@@ -250,11 +261,12 @@ a.nav-link:focus {
 
       .wide-card,
       .small-card {
-        border: 12px solid white;
-        color: white;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: -8px 8px 8px rgba(0, 0, 0, 0.1);
+        color: #462255;
         display: flex;
         margin: 1.6em 0;
-        opacity: 0.9;
 
         .image-section {
           width: 60%;
@@ -275,7 +287,7 @@ a.nav-link:focus {
             }
 
             .links a {
-              color: lightgray;
+              color: darkgray;
               text-decoration: none;
               padding: 0.2em 0.5em;
             }
@@ -300,7 +312,7 @@ a.nav-link:focus {
             text-align: end;
 
             .tech-li {
-              border: 1px solid white;
+              border: 1px solid #462255;
               border-radius: 10px;
               font-weight: lighter;
               margin: 0.5em 0.5em 0.5em 0;
@@ -310,8 +322,10 @@ a.nav-link:focus {
         }
       }
 
-      .wide-card:hover {
-        border-color: #936c7e;
+      .wide-card:hover,
+      .small-card:hover {
+        border: 2px solid #eeeeee;
+        cursor: default;
       }
     }
 
@@ -325,15 +339,9 @@ a.nav-link:focus {
       }
 
       .small-card {
-        border: 1px solid white;
-
         .details-section {
           width: 100%;
         }
-      }
-
-      .small-card:hover {
-        border-color: #936c7e;
       }
     }
   }
@@ -342,6 +350,7 @@ a.nav-link:focus {
 // blogs page
 .about-container,
 .blogs-container,
+.projects-container,
 .admin-auth-container,
 .auth-form,
 .post-form-container,

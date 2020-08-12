@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Spinner from 'react-bootstrap/Spinner';
+import Loading from './Loading';
 import firestore from '../firebase';
 import Header from './Header';
 import Demarcator from './demarcator';
@@ -43,11 +43,7 @@ const BlogPosts = ({ adminDemarcatorTitle, loggedIn }) => {
             </Link>
           )}
 
-          {loading && (
-            <Spinner animation="border" role="status" className="spinner">
-              <span className="sr-only">Loading...</span>
-            </Spinner>
-          )}
+          {loading && <Loading />}
 
           {posts.map(({ id, title, body, createdAt }) => (
             <Post

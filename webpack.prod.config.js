@@ -25,11 +25,22 @@ module.exports = {
   output: {
     path: BUILD_DIR,
     publicPath: '/',
-    filename: '[name].js',
+    filename: '[name].[contenthash].js', // https://webpack.js.org/guides/caching/
   },
   target: 'web',
   optimization: {
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    runtimeChunk: 'single',
+    splitChunks: {
+      // https://webpack.js.org/plugins/split-chunks-plugin/
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -117,8 +128,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].[hash].css',
     }),
   ],
 };

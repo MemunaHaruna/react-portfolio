@@ -10,7 +10,7 @@ import Demarcator from './demarcator';
 
 const images = {
   // eslint-disable-next-line global-require
-  illume: require('../images/illume.png'),
+  illume: require('../images/illume.jpg'),
   // eslint-disable-next-line global-require
   docgenie: require('../images/docgenie.png'),
 };

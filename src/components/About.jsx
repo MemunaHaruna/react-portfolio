@@ -1,10 +1,13 @@
 import React from 'react';
 import Header from './Header';
+import Demarcator from './demarcator';
 
 const About = () => (
   <div className="about-container">
     <Header />
     <section className="about">
+      <Demarcator text="About Me" />
+
       <p>
         For as long as I can remember, I've loved tinkering with things to figure out how they work.
         Software engineering gives me the opportunity to explore and learn exciting things, build

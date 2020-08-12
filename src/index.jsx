@@ -3,6 +3,7 @@ import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import WebFont from 'webfontloader';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles.scss';
 import Container from 'react-bootstrap/Container';
@@ -13,8 +14,16 @@ import BlogPosts from './components/BlogPosts';
 import Admin from './components/Admin';
 import PostForm from './components/PostForm';
 import PostPage from './components/PostPage';
+
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
+
+// improved performance, better than adding link to font in index.html
+WebFont.load({
+  google: {
+    families: ['Raleway', 'Sacramento', 'sans-serif'],
+  },
+});
 
 const App = () => {
   return (
