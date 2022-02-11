@@ -39,7 +39,7 @@
     "express": "^4.17.1",
     "file-loader": "^6.0.0",
     "firebase": "^7.17.1",
-    "froala-editor": "^2.9.4",
+    "froala-editor": "^4.0.7",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
     "jquery": "^3.5.1",
